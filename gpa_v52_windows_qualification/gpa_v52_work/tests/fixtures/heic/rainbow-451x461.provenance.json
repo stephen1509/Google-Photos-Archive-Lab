@@ -1,0 +1,19 @@
+{
+  "expected_size": 7080,
+  "filename": "rainbow-451x461.heic",
+  "fixture_id": "libheif-rainbow-451x461-heic-v1",
+  "format_profile_id": "heic-single-v1",
+  "license": "LGPL-3.0",
+  "license_basis": "libheif repository COPYING declares libheif under LGPL; codec-corpus HEIC conformance documentation classifies libheif test data as LGPL-3.0. A verbatim LGPL-3.0 license copy accompanies this fixture.",
+  "license_file": "LICENSE-LGPL-3.0.txt",
+  "license_sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+  "production_approval": false,
+  "qualification_only": true,
+  "schema": "gpa.external-qualification-fixture-provenance.v1",
+  "sha256": "4b2ce727f093944975f143ba2b39c4c64511b766d94552f8d51a755916e7f983",
+  "source_commit": "1a3583bcce77de6d3f8701c0758e3954863681ba",
+  "source_git_blob_sha1": "6691f50f39bd69871a2abe284de2ef9f5243bc66",
+  "source_path": "tests/data/rainbow-451x461.heic",
+  "source_repository": "strukturag/libheif",
+  "source_url": "https://raw.githubusercontent.com/strukturag/libheif/1a3583bcce77de6d3f8701c0758e3954863681ba/tests/data/rainbow-451x461.heic"
+}

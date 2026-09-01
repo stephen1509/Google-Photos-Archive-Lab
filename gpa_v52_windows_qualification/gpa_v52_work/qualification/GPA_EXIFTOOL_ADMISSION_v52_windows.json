@@ -1,0 +1,35 @@
+{
+  "architecture": "x64",
+  "archive_path": "C:\\Users\\steph\\Dropbox\\Projects\\Google Photos Archive Lab\\gpa_v52_windows_qualification\\gpa_v52_work\\qualification\\exiftool-cache\\exiftool-13.59_64.zip",
+  "archive_verified": true,
+  "candidate_id": "13.59-win-x64",
+  "checks": {
+    "archive_verified": true,
+    "distribution_prepared": false,
+    "executable_present": false,
+    "sha256_matches": true,
+    "size_matches": true,
+    "zip_structure_safe": true
+  },
+  "created_utc": "2026-09-01T08:49:36.021697+00:00",
+  "downloaded": true,
+  "errors": [
+    "[WinError 5] Access is denied: 'C:\\\\Users\\\\steph\\\\Dropbox\\\\Projects\\\\Google Photos Archive Lab\\\\gpa_v52_windows_qualification\\\\gpa_v52_work\\\\qualification\\\\exiftool-prepare\\\\.gpa-exiftool-extract-s6jv3vpf\\\\exiftool-13.59_64' -> 'qualification\\\\exiftool-prepare\\\\exiftool-13.59_64'"
+  ],
+  "executable_path": null,
+  "executable_sha256": null,
+  "expected_sha256": "44b512b25af500724ba579d0a53c8fc5851628b692dd5e5d94ae4a15c2cba9ec",
+  "expected_size_bytes": 11183675,
+  "final_url": "https://twds.dl.sourceforge.net/project/exiftool/exiftool-13.59_64.zip?viasf=1&fid=3c47c0ed4b0d67c6&e=1788338975&st=beorMdYGqOMpbOR0iPiG0w",
+  "observed_sha256": "44b512b25af500724ba579d0a53c8fc5851628b692dd5e5d94ae4a15c2cba9ec",
+  "observed_size_bytes": 11183675,
+  "platform": "windows",
+  "prepared_distribution_root": null,
+  "prepared_distribution_sha256": null,
+  "reused_existing": false,
+  "schema": "gpa.exiftool-distribution-admission.v1",
+  "source_url": "https://sourceforge.net/projects/exiftool/files/exiftool-13.59_64.zip/download",
+  "version": "13.59",
+  "zip_members": 629,
+  "zip_uncompressed_bytes": 34532543
+}

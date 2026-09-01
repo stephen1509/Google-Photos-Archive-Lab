@@ -1,0 +1,36 @@
+{
+  "schema": "gpa.windows-avif-toolchain-evidence.v1",
+  "created_date": "2026-09-01",
+  "scope": "synthetic AVIF decode and Motion Photo relationship qualification only",
+  "host": {
+    "os": "Windows 10 Pro 22H2 (build 19045.7663)",
+    "architecture": "AMD64",
+    "python": "C:\\Python314\\python.exe (3.14.4)"
+  },
+  "validator": {
+    "selection_environment_variable": "GPA_HEIF_CONVERT",
+    "executable": "D:\\Tools\\libheif-avif\\bin\\heif-convert.exe",
+    "executable_sha256": "f9723cf7c2bb635a2e1077ac177108e78d6697262ee93e01acfbf25e59b4db96",
+    "reported_version": "1.23.1",
+    "reported_libheif_version": "1.23.1",
+    "heif_dll_sha256": "797fb83567f8389391b0aaed0c31e17fd64c6565c2610b8d148fb2bb68ef5f19",
+    "aom_dll_sha256": "77bb8f8798768a9ed212db24bc61eb2421c83fbe28e0f6045424d5a52d833edc",
+    "avif_decoder": "built-in AOM AV1 decoder"
+  },
+  "verification": {
+    "command": "C:\\Python314\\python.exe -m pytest tests/test_media_validation.py tests/test_relationship_roundtrip_qualification.py -q -k 'explicit_heif_converter_path or avif'",
+    "result": "4 passed, 40 deselected",
+    "validation": "GPA_HEIF_CONVERT was set to the exact executable above"
+  },
+  "safety": {
+    "real_takeout_accessed": false,
+    "production_metadata_writing_enabled": false,
+    "production_metadata_writing_approved": false,
+    "google_retirement_approved": false,
+    "limitations": [
+      "This evidence does not qualify HEIC decoding.",
+      "This evidence does not admit or qualify an ExifTool distribution.",
+      "This evidence does not replace the Windows core RAW/storage gate."
+    ]
+  }
+}

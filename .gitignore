@@ -1,0 +1,8 @@
+# Re-downloadable third-party qualification material; never the authority source.
+gpa_v52_windows_qualification/gpa_v52_work/qualification/exiftool-cache/
+gpa_v52_windows_qualification/gpa_v52_work/qualification/exiftool-prepare*/
+gpa_v52_windows_qualification/gpa_v52_work/qualification/exiftool-qualification*/
+
+# Local test/runtime by-products.
+gpa_v52_windows_qualification/gpa_v52_work/.pytest_cache/
+gpa_v52_windows_qualification/gpa_v52_work/**/__pycache__/

@@ -1,0 +1,38 @@
+{
+  "archive_files": 100,
+  "archive_mirror": {
+    "files": 100,
+    "problems": [],
+    "resume_copied": 95,
+    "resume_reused": 5
+  },
+  "checks": {
+    "archive_mirror_fault_reproduced": true,
+    "archive_mirror_resumed": true,
+    "archive_mirror_verified": true,
+    "mirrored_source_vault_audit_clean": true,
+    "no_staging_files_left": true,
+    "raw_takeout_originals_unchanged": true,
+    "source_vault_audit_clean": true,
+    "source_vault_fault_reproduced": true,
+    "source_vault_mirror_fault_reproduced": true,
+    "source_vault_mirror_resumed": true,
+    "source_vault_mirror_verified": true,
+    "source_vault_rerun_reused_crashed_bytes": true
+  },
+  "passed": true,
+  "schema": "gpa.stress-backup-recovery.v1",
+  "source_count": 20,
+  "source_vault": {
+    "archives": 20,
+    "problems": [],
+    "records": 20
+  },
+  "source_vault_mirror": {
+    "files": 40,
+    "problems": [],
+    "resume_copied": 37,
+    "resume_reused": 3
+  },
+  "staging_files": []
+}

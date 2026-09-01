@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "mirror_conflict_fails_closed": true,
+    "mirror_conflict_preflight_prevents_partial_write": true,
+    "mirror_crash_reproduced": true,
+    "mirror_partial_state_detected": true,
+    "mirror_resume_clean": true,
+    "vault_bytes_durable_before_record": true,
+    "vault_crash_reproduced": true,
+    "vault_incomplete_state_not_audit_clean": true,
+    "vault_resume_audit_clean": true,
+    "vault_resume_reuses_bytes": true
+  },
+  "mirror": {
+    "files_checked": 101,
+    "files_expected": 101,
+    "partial_missing": 97
+  },
+  "passed": true,
+  "schema": "gpa.backup-fault-recovery.v1",
+  "vault": {
+    "archives": 1,
+    "problems": [],
+    "records": 1
+  }
+}

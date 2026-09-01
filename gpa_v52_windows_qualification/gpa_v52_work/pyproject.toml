@@ -1,0 +1,14 @@
+[project]
+name = "google-photos-archive-lab"
+version = "0.0.39"
+requires-python = ">=3.11"
+
+[project.optional-dependencies]
+raw-validation = ["rawpy==0.27.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+
+[project.scripts]
+gpa-lab = "gpa.__main__:main"

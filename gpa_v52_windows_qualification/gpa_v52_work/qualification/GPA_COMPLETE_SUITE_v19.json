@@ -1,0 +1,121 @@
+{
+  "created_utc": "2026-08-22T10:20:38.576732+00:00",
+  "jobs": 4,
+  "modules": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_archive_format.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": "..............                                                           [100%]\n14 passed in 0.18s",
+      "tests": 14,
+      "time": 0.18,
+      "timed_out": false
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_backup_recovery.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": "...........                                                              [100%]\n11 passed in 0.84s",
+      "tests": 11,
+      "time": 0.836,
+      "timed_out": false
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_core.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": "..................................................................       [100%]\n=============================== warnings summary ===============================\ntests/test_core.py::test_duplicate_archive_member_path_rejected\n  /usr/lib/python3.13/zipfile/__init__.py:1642: UserWarning: Duplicate name: 'a.jpg'\n    return self._open_to_write(zinfo, force_zip64=force_zip64)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n138 passed, 1 warning in 5.15s",
+      "tests": 138,
+      "time": 5.148,
+      "timed_out": false
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_datapacks.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": "......                                                                   [100%]\n6 passed in 0.06s",
+      "tests": 6,
+      "time": 0.058,
+      "timed_out": false
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_exiftool_qualification.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": "..........                                                               [100%]\n10 passed in 19.06s",
+      "tests": 10,
+      "time": 19.061,
+      "timed_out": false
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_hardening.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": "........................................................................ [ 47%]\n........................................................................ [ 95%]\n.......                                                                  [100%]\n151 passed in 3.17s",
+      "tests": 151,
+      "time": 3.164,
+      "timed_out": false
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_identity_observations.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": ".............                                                            [100%]\n13 passed in 0.66s",
+      "tests": 13,
+      "time": 0.662,
+      "timed_out": false
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "module": "tests/test_media_validation.py",
+      "passed": true,
+      "returncode": 0,
+      "skipped": 0,
+      "stderr_tail": "",
+      "stdout_tail": "....................                                                     [100%]\n20 passed in 6.80s",
+      "tests": 20,
+      "time": 6.798,
+      "timed_out": false
+    }
+  ],
+  "passed": true,
+  "python": "3.13.5",
+  "schema": "gpa.test-suite.v1",
+  "timeout_seconds_per_module": 35.0,
+  "totals": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 363,
+    "time": 35.907000000000004
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "gpa.raw-corpus-manifest.v1",
+  "corpus_id": "gpa-public-raw-pixls-representative-v1",
+  "source_catalog": "raw.pixls.us public RAW sample archive",
+  "source_base_url": "https://raw.pixls.us/data/",
+  "source_index_url": "https://raw.pixls.us/data/filelist.sha256",
+  "catalog_snapshot_date": "2026-08-24",
+  "rights_note": "GPA does not bundle these media files or assert a per-file license. Obtain samples directly from the source catalog and comply with its current terms; exact SHA-256 values below are used only for qualification identity.",
+  "samples": [
+    {"sample_id":"canon-eos-5d-mark-iii-cr2","brand":"Canon","model":"EOS 5D Mark III","format_family":"CR2","relative_path":"Canon/EOS 5D Mark III/5G4A9394.CR2","sha256":"ec069b178b9383d80c72f8cdc1b79bd54ca451e7c20793b109d8ad73bef6bdf6"},
+    {"sample_id":"canon-eos-m200-cr3","brand":"Canon","model":"Canon EOS M200","format_family":"CR3","relative_path":"Canon/Canon EOS M200/_MG_2231.CR3","sha256":"9b900c04ae37ba827b7894e66907657a0b174a74855c40039a8ca0c95583f141"},
+    {"sample_id":"nikon-d70-nef","brand":"Nikon","model":"D70","format_family":"NEF","relative_path":"Nikon/D70/20170902_0047.NEF","sha256":"dd6405aeb33b0cd5bf66c98ba98ccbb478a765450cfd130810e470dab8d1f4b4"},
+    {"sample_id":"sony-ilce-6000-arw","brand":"Sony","model":"ILCE-6000","format_family":"ARW","relative_path":"Sony/ILCE-6000/DSC01542.ARW","sha256":"ce8b4957281a817d52a07a691e2468567b6c78223bd0b514ffc1c65b002b8d89"},
+    {"sample_id":"fujifilm-x-t2-raf","brand":"Fujifilm","model":"X-T2","format_family":"RAF","relative_path":"Fujifilm/X-T2/20170114_173532_TFW04723.RAF","sha256":"aaa648429eeee8e1bea05fccfeeb2ea54ee7052e23db0ee02f049e5b23cecaef"},
+    {"sample_id":"panasonic-dmc-gh2-rw2","brand":"Panasonic","model":"DMC-GH2","format_family":"RW2","relative_path":"Panasonic/DMC-GH2/_1040800.RW2","sha256":"87516d28f8594dcfd20b0577883ad0d35662efc503674b1e3688aa894d32a2c0"},
+    {"sample_id":"olympus-e-m5-orf","brand":"Olympus","model":"E-M5","format_family":"ORF","relative_path":"Olympus/E-M5/P2082705.ORF","sha256":"b2221977cbc6eba0d3b363351072092e5647eaa0d02a5d8432b5d985b29f669f"},
+    {"sample_id":"pentax-k-5-pef","brand":"Pentax","model":"K-5","format_family":"PEF","relative_path":"Pentax/K-5/_MAR0544.PEF","sha256":"1fefefbccd73ba05c71f49b724e1f52bb343e2ac4f52f3bc93d828f5ee02cf6c"},
+    {"sample_id":"apple-iphone-12-pro-dng","brand":"Apple","model":"iPhone 12 Pro","format_family":"DNG","relative_path":"Apple/iPhone 12 Pro/IMG_1361.DNG","sha256":"e91e77a4533ed7cce551d83330676ea5c47dd5e55fb38adda7819366afdbdfc2"},
+    {"sample_id":"hasselblad-h4d-3fr","brand":"Hasselblad","model":"Hasselblad H4D","format_family":"3FR","relative_path":"Hasselblad/Hasselblad H4D/A0000902.3FR","sha256":"5c0b033e2978035637d07c3e1567bf7748a06c5d5c0ae168027c74d54df7ff80"},
+    {"sample_id":"phase-one-iq150-iiq","brand":"Phase One","model":"IQ150","format_family":"IIQ","relative_path":"Phase One/IQ150/CF006803.IIQ","sha256":"6422a8d863276fcc756e2f529ac406337f00ad05a19ef83f7893fafc358ff8b5"},
+    {"sample_id":"samsung-nx30-srw","brand":"Samsung","model":"NX30","format_family":"SRW","relative_path":"Samsung/NX30/2015-03-07-163604_sam_7204.srw","sha256":"691438acdecd54ab96d326b96f83daa02fa68f7d66a38ff2fee4e8dd00c79d24"}
+  ]
+}

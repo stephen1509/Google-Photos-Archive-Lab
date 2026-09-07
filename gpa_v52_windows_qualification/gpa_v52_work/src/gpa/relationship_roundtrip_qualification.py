@@ -352,6 +352,16 @@ def _find_suffix(tags: dict, suffix: str):
     return None
 
 
+def _normalized_exiftool_datetime(value: Any) -> str:
+    """Normalize ExifTool's date form without damaging an already ISO value."""
+    text = str(value or '')
+    if len(text) >= 10 and text[4] == ':' and text[7] == ':':
+        text = f'{text[:4]}-{text[5:7]}-{text[8:]}'
+    if len(text) > 10 and text[10] == ' ':
+        text = f'{text[:10]}T{text[11:]}'
+    return text
+
+
 def _relationship_state(data: bytes, format_profile_id: str) -> dict:
     if format_profile_id == JPEG_PROFILE_ID:
         detected = detect_jpeg_motion_photo(data, allow_legacy_microvideo=False)
@@ -559,7 +569,7 @@ def qualify_exiftool_motion_photo(
             desc = _find_suffix(tags, 'Description')
             report.checks['readback_description'] = desc == expected_desc or (isinstance(desc, list) and expected_desc in desc)
             date_created = _find_suffix(tags, 'DateCreated')
-            report.checks['readback_xmp_date'] = str(date_created or '').replace(':', '-', 2).replace(' ', 'T', 1).startswith('2017-05-01T21:30:00')
+            report.checks['readback_xmp_date'] = _normalized_exiftool_datetime(date_created).startswith('2017-05-01T21:30:00')
         except Exception as e:
             report.checks['readback_completed'] = False
             report.checks['readback_description'] = False
@@ -708,7 +718,7 @@ def _live_photo_readback(adapter: ExifToolAdapter, path: Path) -> tuple[bool, bo
     desc = _find_suffix(tags, 'Description')
     desc_ok = desc == expected_desc or (isinstance(desc, list) and expected_desc in desc)
     date_created = _find_suffix(tags, 'DateCreated')
-    date_ok = str(date_created or '').startswith('2017-05-01T21:30:00')
+    date_ok = _normalized_exiftool_datetime(date_created).startswith('2017-05-01T21:30:00')
     return True, desc_ok, date_ok
 
 

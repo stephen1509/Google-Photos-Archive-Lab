@@ -15,11 +15,20 @@ from gpa.relationship_roundtrip_qualification import (
     LIVE_PHOTO_PROFILE_ID,
     HEIC_PROFILE_ID,
     AVIF_PROFILE_ID,
+    _normalized_exiftool_datetime,
     expected_relationship_qualification_id,
     qualify_exiftool_motion_photo,
     qualify_exiftool_live_photo,
     write_relationship_qualification_report,
 )
+
+
+@pytest.mark.parametrize(('value', 'expected'), [
+    ('2017:05:01 21:30:00+09:00', '2017-05-01T21:30:00+09:00'),
+    ('2017-05-01T21:30:00+09:00', '2017-05-01T21:30:00+09:00'),
+])
+def test_normalized_exiftool_datetime_preserves_iso_and_normalizes_exiftool_form(value, expected):
+    assert _normalized_exiftool_datetime(value) == expected
 
 
 def _fake(path: Path, *, mode: str = 'good', version: str = '13.55') -> Path:

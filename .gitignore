@@ -6,6 +6,7 @@ gpa_v52_windows_qualification/gpa_v52_work/qualification/raw_corpus_samples/
 gpa_v52_windows_qualification/gpa_v52_work/qualification/windows-release-exiftool-*/
 gpa_v52_windows_qualification/gpa_v52_work/qualification/windows-writer-exiftool-*/
 gpa_v52_windows_qualification/gpa_v52_work/qualification/windows-writer-synthetic-*/
+gpa_v52_windows_qualification/gpa_v52_work/qualification/heic-toolchain-*/
 
 # Local test/runtime by-products.
 gpa_v52_windows_qualification/gpa_v52_work/.pytest_cache/

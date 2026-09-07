@@ -63,6 +63,14 @@ def _sha_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def _normalized_exiftool_datetime(value: object) -> str:
+    """Accept ExifTool's legacy date form without corrupting ISO-8601 readback."""
+    text = str(value or '').strip()
+    if len(text) >= 10 and text[4:5] == ':' and text[7:8] == ':':
+        text = text[:4] + '-' + text[5:7] + '-' + text[8:]
+    return text.replace(' ', 'T', 1)
+
+
 def _candidate_version(executable: Path, timeout_seconds: float) -> str:
     try:
         cp = subprocess.run(executable_command(executable, '-ver'), capture_output=True, text=True, timeout=timeout_seconds)
@@ -311,7 +319,7 @@ def qualify_exiftool_format(
             expected_desc = f'GPA {format_profile_id} qualification fixture'
             report.checks['readback_description'] = desc == expected_desc or (isinstance(desc, list) and expected_desc in desc)
             date_created = _find_suffix(tags, 'DateCreated')
-            report.checks['readback_xmp_date'] = str(date_created or '').replace(':', '-', 2).replace(' ', 'T', 1).startswith('2017-05-01T21:30:00')
+            report.checks['readback_xmp_date'] = _normalized_exiftool_datetime(date_created).startswith('2017-05-01T21:30:00')
         except Exception as e:
             report.checks['readback_completed'] = False
             report.checks['readback_description'] = False

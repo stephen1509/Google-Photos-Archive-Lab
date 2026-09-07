@@ -1,0 +1,24 @@
+{
+  "schema": "gpa.full-regression-evidence.v1",
+  "scope": "offline synthetic and public-fixture regression only",
+  "platform": "Windows x64",
+  "python": "C:\\Python314\\python.exe",
+  "command": "python -m pytest -q --basetemp D:\\gpa-pytest-full-r2 -p no:cacheprovider",
+  "result": {
+    "passed": 671,
+    "failed": 0,
+    "warnings": 1,
+    "duration_seconds": 272.01,
+    "warning_summary": "Expected Python zipfile warning from a duplicate-archive-member rejection test."
+  },
+  "safety": {
+    "real_takeout_accessed": false,
+    "personal_media_accessed": false,
+    "production_metadata_write_approved": false,
+    "google_retirement_approved": false
+  },
+  "notes": [
+    "A short disposable D: base-temp path is required for synthetic tests because deeply nested fixtures can exceed a Windows path limit under the Dropbox project path.",
+    "This regression result is not production metadata-writer approval and is not Google-retirement evidence."
+  ]
+}

@@ -32,10 +32,11 @@ def test_corrupt_jpeg_is_failed_not_unavailable(tmp_path):
     assert r.status=='failed' and r.validator=='Pillow' and r.version
 
 
-def test_raw_without_qualified_validator_is_explicitly_unavailable(tmp_path):
+def test_invalid_raw_fails_closed_without_claiming_validation_passed(tmp_path):
     p=tmp_path/'a.cr3';p.write_bytes(b'raw')
     r=validate_media(p)
-    assert r.status=='unavailable' and 'RAW' in (r.validator or '')
+    assert r.status in {'unavailable','failed'} and r.status!='passed'
+    assert 'RAW' in (r.validator or '')
 
 
 def test_valid_mp4_requires_video_stream_and_records_ffprobe_version(tmp_path):

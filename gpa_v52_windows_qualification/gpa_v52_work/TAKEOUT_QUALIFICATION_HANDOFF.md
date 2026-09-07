@@ -30,8 +30,18 @@ The first pass does **not** copy, extract, upload, modify, or delete Takeout/med
 
 - Windows x64 host diagnostics passed with C: and D: accessible.
 - Available free space at the latest check: about 681 GB on C: and 2.29 TB on D:.
-- Python 3.14.4, FFmpeg/ffprobe, ExifTool 13.59 (qualified distribution), and the locally rebuilt HEIC decoder lane are available for their existing qualification scopes.
+- Python 3.14.4, FFmpeg/ffprobe, the admitted ExifTool 13.59 distribution, and the locally rebuilt HEIC decoder lane are available for their existing qualification scopes. The admitted ExifTool distribution is pinned in GPA evidence rather than assumed from the global `PATH`.
 - Motion Photo writer qualification is **blocked**. The real ExifTool path altered Motion Photo structure during synthetic relationship testing; GPA must preserve such sources byte-for-byte and surface them for review.
+
+## Motion Photo writer hold
+
+Do not attempt embedded metadata writing on a real Motion Photo during representative Takeout qualification. The safe current behavior is byte-for-byte preservation plus GPA provenance/review records.
+
+This hold can be reconsidered only for a separately pinned writer and exact format profile after independent qualification proves all of the following: unique, valid Motion Photo XMP/container structure; unchanged still coded payload; unchanged appended/`mpvd` video bytes; preserved terminal layout and declared length; independent still/video decoding; correct metadata readback; and exact writer/distribution identity. A structural ambiguity, payload difference, decoder failure, or readback mismatch keeps the lane blocked. Genuine representative samples require Stephen's explicit approval before use.
+
+## Windows test-runner note
+
+For GPA's own synthetic regression tests only, use a new short disposable `D:\gpa-pytest-...` directory with pytest's `--basetemp` option. The Dropbox project path is long enough that deeply nested generated fixtures can exceed a Windows path limit and create misleading test failures. Never use this test directory for Takeout ZIPs, archive output, evidence, or any personal file.
 
 ## Evidence and stop conditions
 

@@ -43,6 +43,14 @@ class ExifToolQualificationReport:
 def _sha_bytes(data:bytes)->str:return hashlib.sha256(data).hexdigest()
 
 
+def _normalized_exiftool_datetime(value: object) -> str:
+    """Accept ExifTool's legacy date form without corrupting ISO-8601 readback."""
+    text = str(value or '').strip()
+    if len(text) >= 10 and text[4:5] == ':' and text[7:8] == ':':
+        text = text[:4] + '-' + text[5:7] + '-' + text[8:]
+    return text.replace(' ', 'T', 1)
+
+
 def fingerprint_exiftool_candidate(executable:Path,distribution_root:Path|None=None)->dict:
     exe=Path(executable)
     if exe.is_symlink():raise ExifToolQualificationError('ExifTool candidate executable must not be a symlink')
@@ -152,7 +160,7 @@ def qualify_exiftool_candidate(executable:Path,workdir:Path,*,distribution_root:
             if lon is not None and lonref=='W':lon=-abs(lon)
             report.checks['readback_gps']=lat is not None and lon is not None and abs(lat-34.6851)<1e-5 and abs(lon-135.8048)<1e-5
             desc=_find_suffix(tags,'Description');report.checks['readback_description']=desc=='GPA qualification fixture' or (isinstance(desc,list) and 'GPA qualification fixture' in desc)
-            dc=_find_suffix(tags,'DateCreated');report.checks['readback_xmp_date']=str(dc or '').replace(':','-',2).replace(' ','T',1).startswith('2017-05-01T21:30:00')
+            dc=_find_suffix(tags,'DateCreated');report.checks['readback_xmp_date']=_normalized_exiftool_datetime(dc).startswith('2017-05-01T21:30:00')
         except Exception as e:
             report.checks['readback_completed']=False;report.errors.append(f'readback failed: {e}')
             for k in ('readback_date','readback_offset','readback_gps','readback_description','readback_xmp_date'):report.checks.setdefault(k,False)

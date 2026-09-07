@@ -1,0 +1,45 @@
+{
+  "checks": {
+    "platform_is_windows": true,
+    "python_executable_fingerprinted": true,
+    "requested_paths_accessible": true,
+    "runtime_is_64_bit": true,
+    "windows_x64_eligible": true
+  },
+  "created_utc": "2026-09-07T16:59:25.914763+00:00",
+  "google_retirement_approved": false,
+  "passed_for_windows_handoff": true,
+  "paths": [
+    {
+      "exists": true,
+      "free_bytes": 680779816960,
+      "is_dir": true,
+      "path_index": 1,
+      "total_bytes": 999575203840
+    },
+    {
+      "exists": true,
+      "free_bytes": 2288405876736,
+      "is_dir": true,
+      "path_index": 2,
+      "total_bytes": 6001173458944
+    }
+  ],
+  "platform": {
+    "hostname_sha256": "ce04badc1decd85a7d7ebbc0c319edac11edc43449619a7387e0316ef6c990ce",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 142 Stepping 9, GenuineIntel",
+    "release": "10",
+    "system": "Windows",
+    "version": "10.0.19045"
+  },
+  "production_write_approved": false,
+  "runtime": {
+    "executable_sha256": "7ca24f26d6e3f463419ee4f537ddd3acd312c38fe45e678cce08572f26a8bd1a",
+    "pointer_bits": 64,
+    "python_implementation": "CPython",
+    "python_version": "3.14.4"
+  },
+  "schema": "gpa.host-diagnostics.v1",
+  "warnings": []
+}

@@ -12,3 +12,9 @@ v52 prepares the transition from synthetic/product qualification to genuine Wind
 ## Safety boundaries
 
 A handoff package is preparation, not evidence. Windows qualification is evidence, not permission to write. Writer review is evidence, not a production approval. Google retirement remains blocked until the complete independent exit gate passes.
+
+## Representative Takeout intake
+
+Use [`TAKEOUT_QUALIFICATION_HANDOFF.md`](TAKEOUT_QUALIFICATION_HANDOFF.md) when a representative export is available. The first real-Takeout pass is read-only: it fingerprints the supplied ZIP(s) before and after scanning and planning, writes only a new report/workspace selected by the operator, and fails if the source bytes change. It does not extract, rename, upload, modify, or delete a Takeout ZIP.
+
+Motion Photo embedded writing is not part of this intake. The current real ExifTool evidence fails structural relationship verification after write, so Motion Photo material is preserved and surfaced for review while that lane remains blocked.

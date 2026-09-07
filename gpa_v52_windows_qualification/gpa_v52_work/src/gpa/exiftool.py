@@ -1,5 +1,5 @@
 from __future__ import annotations
-import hashlib, json, subprocess, sys
+import hashlib, json, os, subprocess, sys
 from pathlib import Path
 from .writepolicy import MetadataPlan
 
@@ -41,7 +41,15 @@ class ExifToolAdapter:
         # POSIX can execute a shebang Python fixture directly; Windows cannot.
         # This compatibility path is intentionally limited to explicit .py tools,
         # leaving normal ExifTool executables and production approvals unchanged.
-        try:return subprocess.run(command,capture_output=True,text=True,timeout=self.timeout_seconds)
+        env=None
+        if os.name == 'nt':
+            env=os.environ.copy()
+            # Codex's POSIX-oriented shell exports C.UTF-8, which Windows Perl
+            # does not provide and therefore warns about on every ExifTool run.
+            for name in ('LC_ALL','LC_CTYPE','LANG'):
+                if env.get(name, '').casefold() == 'c.utf-8':
+                    env.pop(name, None)
+        try:return subprocess.run(command,capture_output=True,text=True,timeout=self.timeout_seconds,env=env)
         except subprocess.TimeoutExpired as e:raise ExifToolError(f'ExifTool timed out after {self.timeout_seconds:g}s') from e
     def version(self)->str:
         if self._version:return self._version

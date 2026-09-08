@@ -1,0 +1,3 @@
+# Qualification fixtures are byte-pinned evidence.  Never change their bytes
+# through checkout line-ending conversion on Windows.
+tests/fixtures/** -text

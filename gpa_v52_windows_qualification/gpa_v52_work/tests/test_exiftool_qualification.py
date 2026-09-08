@@ -76,7 +76,11 @@ def test_wrong_readback_cannot_pass(tmp_path):
 
 
 def test_candidate_fingerprint_rejects_symlink(tmp_path):
-    exe=_fake(tmp_path);link=tmp_path/'link';link.symlink_to(exe)
+    exe=_fake(tmp_path);link=tmp_path/'link'
+    try:
+        link.symlink_to(exe)
+    except OSError as e:
+        pytest.skip(f'Windows symlink privilege unavailable; cannot exercise real symlink rejection: {e}')
     with pytest.raises(Exception):fingerprint_exiftool_candidate(link)
 
 
@@ -84,7 +88,10 @@ def test_distribution_fingerprint_is_recorded_and_symlinks_refused(tmp_path):
     dist=tmp_path/'dist';dist.mkdir();exe=_fake(dist);(dist/'lib').mkdir();(dist/'lib/x.pm').write_text('x')
     r=qualify_exiftool_candidate(exe,tmp_path/'work',distribution_root=dist)
     assert r.passed and len(r.distribution_sha256)==64 and r.checks['distribution_fingerprinted']
-    (dist/'lib/link.pm').symlink_to(tmp_path/'outside')
+    try:
+        (dist/'lib/link.pm').symlink_to(tmp_path/'outside')
+    except OSError as e:
+        pytest.skip(f'Windows symlink privilege unavailable; cannot exercise real symlink rejection: {e}')
     bad=qualify_exiftool_candidate(exe,tmp_path/'work2',distribution_root=dist)
     assert not bad.passed and any('symlink' in e for e in bad.errors)
 

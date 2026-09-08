@@ -9,6 +9,17 @@ from gpa.format_roundtrip_qualification import AVIF_HARNESS_ID, HEIC_HARNESS_ID,
 from gpa.qualification_fixtures import HEIC_FIXTURE, QualificationFixtureError, verify_qualification_fixture
 
 
+def _require_avif_decode(tmp_path: Path) -> None:
+    """Skip only AVIF-positive qualification when its pinned decoder is absent."""
+    from PIL import Image
+    from gpa.media_validation import validate_media
+    probe = tmp_path / 'avif-capability.avif'
+    Image.new('RGB', (2, 2), (1, 2, 3)).save(probe, 'AVIF')
+    result = validate_media(probe)
+    if result.status != 'passed':
+        pytest.skip('AVIF positive qualification requires a compatible heif-convert decoder (set GPA_HEIF_CONVERT to the pinned AV1-capable build): ' + str(result.detail))
+
+
 def _fake(path: Path, *, mode="good", version="13.55") -> Path:
     path.mkdir(parents=True, exist_ok=True)
     p=path/'exiftool-avif-fake.py'
@@ -48,6 +59,7 @@ print('1 files updated')
 
 
 def test_good_avif_candidate_passes_item_payload_decode_and_readback(tmp_path):
+    _require_avif_decode(tmp_path)
     r = qualify_exiftool_format(_fake(tmp_path), tmp_path/'work', format_profile_id='avif-single-v1')
     assert r.harness == AVIF_HARNESS_ID and r.passed
     assert r.checks['fixture_valid_before'] and r.checks['media_payload_unchanged'] and r.checks['output_decodable']

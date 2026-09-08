@@ -134,7 +134,10 @@ def test_verification_can_explicitly_ignore_archive_format_for_legacy_analysis(t
 def test_manifest_symlink_is_invalid_and_never_followed(tmp_path):
     root=tmp_path/'archive';(root/'metadata').mkdir(parents=True)
     outside=tmp_path/'outside.json';outside.write_text(json.dumps({'schema':MANIFEST_SCHEMA,'archive_format':ARCHIVE_FORMAT_ID}))
-    archive_manifest_path(root).symlink_to(outside)
+    try:
+        archive_manifest_path(root).symlink_to(outside)
+    except OSError as e:
+        pytest.skip(f'Windows symlink privilege unavailable; cannot exercise real symlink rejection: {e}')
     st=inspect_archive_format(root)
     assert st.status=='invalid_manifest' and not st.supported
 
@@ -142,6 +145,9 @@ def test_manifest_symlink_is_invalid_and_never_followed(tmp_path):
 def test_legacy_upgrade_refuses_symlinked_files(tmp_path):
     root=tmp_path/'archive';(root/'Photos').mkdir(parents=True)
     outside=tmp_path/'outside.jpg';outside.write_bytes(b'outside')
-    (root/'Photos'/'link.jpg').symlink_to(outside)
+    try:
+        (root/'Photos'/'link.jpg').symlink_to(outside)
+    except OSError as e:
+        pytest.skip(f'Windows symlink privilege unavailable; cannot exercise real symlink rejection: {e}')
     with pytest.raises(ArchiveFormatError):upgrade_archive_format(root)
     assert not archive_manifest_path(root).exists()

@@ -6,9 +6,11 @@ No Windows evidence is manufactured by handoff generation. Non-Windows diagnosti
 
 Production ExifTool approvals remain empty. Embedded production metadata writing remains disabled. RAW embedded rewriting remains prohibited. Google originals cannot be retired without the full independent evidence chain.
 
-## Windows offline readiness update — 2026-09-08
+## Windows offline readiness update — superseded 2026-09-08
 
-- Full local regression from a short disposable Windows test path: **671 passed, 1 expected duplicate-ZIP-name warning**.
+- The prior “671 passed” prose claim is not supported by a matching committed
+  complete-suite/JUnit artifact and is **not current qualification evidence**.
+  Historical files are retained; see `QUALIFICATION_EVIDENCE_RECONCILIATION_20260908.md`.
 - Windows x64 host diagnostics, Windows core storage/RAW evidence, HEIC decode qualification, base media format qualifications, and Live Photo synthetic relationship qualification have passed in their recorded scopes.
 - The admitted ExifTool 13.59 distribution remains pinned by qualification evidence. It is not treated as a global-PATH production approval.
 - Motion Photo embedded writer qualification remains blocked after real ExifTool writes failed structural relationship verification. Preserve those sources byte-for-byte and surface them for review.

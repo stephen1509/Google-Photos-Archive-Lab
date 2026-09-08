@@ -23,6 +23,17 @@ from gpa.relationship_roundtrip_qualification import (
 )
 
 
+def _require_avif_decode(tmp_path: Path) -> None:
+    """Skip only AVIF-positive qualification when the decoder capability is absent."""
+    from PIL import Image
+    from gpa.media_validation import validate_media
+    probe = tmp_path / 'avif-capability.avif'
+    Image.new('RGB', (2, 2), (1, 2, 3)).save(probe, 'AVIF')
+    result = validate_media(probe)
+    if result.status != 'passed':
+        pytest.skip('AVIF positive qualification requires a compatible heif-convert decoder (set GPA_HEIF_CONVERT to the pinned AV1-capable build): ' + str(result.detail))
+
+
 @pytest.mark.parametrize(('value', 'expected'), [
     ('2017:05:01 21:30:00+09:00', '2017-05-01T21:30:00+09:00'),
     ('2017-05-01T21:30:00+09:00', '2017-05-01T21:30:00+09:00'),
@@ -236,6 +247,7 @@ HEIC_TEST_FIXTURE = Path(__file__).resolve().parent / 'fixtures' / 'heic' / 'rai
 
 
 def test_good_avif_motion_photo_candidate_preserves_isobmff_relationship(tmp_path):
+    _require_avif_decode(tmp_path)
     r = qualify_exiftool_motion_photo(
         _fake(tmp_path), tmp_path/'work', format_profile_id=AVIF_PROFILE_ID
     )
@@ -291,6 +303,7 @@ def test_heic_motion_photo_requires_exact_pinned_fixture(tmp_path):
 
 
 def test_cli_avif_motion_photo_relationship_qualification_writes_report(tmp_path, capsys):
+    _require_avif_decode(tmp_path)
     from gpa.__main__ import main
     exe=_fake(tmp_path);report=tmp_path/'relationship-avif.json'
     rc=main(['qualify-exiftool-relationship','--executable',str(exe),'--workdir',str(tmp_path/'work'),
